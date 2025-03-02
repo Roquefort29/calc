@@ -28,21 +28,20 @@
             color: #555;
         }
         .language-buttons {
-            position: fixed;
-            bottom: 20px;
+            position: absolute;
+            top: 20px;
             right: 20px;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
         }
         .language-buttons button {
-            margin: 0 5px 5px 0;
-            padding: 6px 10px;
-            font-size: 12px;
+            margin: 0 10px;
+            padding: 10px;
+            font-size: 16px;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
         }
         .language-buttons button:hover {
@@ -85,7 +84,7 @@
                 font-size: 12px;
             }
             .language-buttons {
-                bottom: 10px;
+                top: 10px;
                 right: 10px;
                 flex-direction: column;
                 align-items: flex-end;
@@ -96,6 +95,48 @@
                 width: 100px;
             }
         }
+        .burger-menu {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .burger-menu button {
+            margin: 5px 0;
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .burger-menu button:hover {
+            background-color: #0056b3;
+        }
+        .burger-menu .menu-content {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .burger-menu .menu-content button {
+            margin: 5px 0;
+            font-size: 14px;
+            width: 100px;
+        }
+        .burger-menu .menu-content.show {
+            display: flex;
+        }
+        @media (max-width: 768px) {
+            .language-buttons {
+                display: none;
+            }
+            .burger-menu {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
@@ -103,17 +144,31 @@
         <h1 class="title">Помощь</h1>
         <p class="subtitle">Информация о том, как использовать калькулятор</p>
 
+        <div class="language-buttons">
+            <button class="btn" onclick="window.location.href='index.html'">Русский</button>
+            <button class="btn" onclick="window.location.href='eng.html'">English</button>
+            <button class="btn btn-help" onclick="window.location.href='kaz.html'">Қазақша</button>
+        </div>
+        <div class="burger-menu">
+            <button onclick="toggleMenu()">☰</button>
+            <div class="menu-content">
+                <button onclick="window.location.href='index.html'">Русский</button>
+                <button onclick="window.location.href='eng.html'">English</button>
+                <button class="btn-help" onclick="window.location.href='kaz.html'">Қазақша</button>
+            </div>
+        </div>
+
         <!-- Add help content here -->
 
         <div class="back-button">
             <button onclick="window.history.back()">Назад</button>
         </div>
     </div>
-
-    <div class="language-buttons">
-        <button class="btn" onclick="window.location.href='index.html'">Русский</button>
-        <button class="btn" onclick="window.location.href='eng.html'">English</button>
-        <button class="btn btn-help" onclick="window.location.href='kaz.html'">Қазақша</button>
-    </div>
+    <script>
+        function toggleMenu() {
+            const menuContent = document.querySelector('.burger-menu .menu-content');
+            menuContent.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

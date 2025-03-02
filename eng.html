@@ -80,6 +80,40 @@
         font-size: 12px;
         border-radius: 4px;
     }
+    .burger-menu {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .burger-menu button {
+        margin: 5px 0;
+        padding: 6px 10px;
+        font-size: 12px;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .burger-menu button:hover {
+        background-color: #0056b3;
+    }
+    .burger-menu .menu-content {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .burger-menu .menu-content button {
+        margin: 5px 0;
+        font-size: 14px;
+        width: 100px;
+    }
+    .burger-menu .menu-content.show {
+        display: flex;
+    }
     @media (max-width: 768px) {
         body {
             padding: 10px;
@@ -101,13 +135,17 @@
             font-size: 12px;
         }
         .language-buttons {
-            bottom: 10px;
-            right: 10px;
-            flex-direction: column;
-            align-items: flex-end;
+            display: none;
+        }
+        .burger-menu {
+            display: flex;
         }
         .language-buttons button {
             margin: 5px 0;
+            font-size: 14px;
+            width: 100px;
+        }
+        .burger-menu button {
             font-size: 14px;
             width: 100px;
         }
@@ -247,6 +285,14 @@
         <button class="btn" onclick="window.location.href='kaz.html'">Қазақша</button>
         <button class="btn" onclick="window.location.href='index.html'">Русский</button>
         <button class="btn btn-help" onclick="window.location.href='help.html'">Help</button>
+    </div>
+    <div class="burger-menu">
+        <button onclick="toggleMenu()">☰</button>
+        <div class="menu-content">
+            <button onclick="window.location.href='kaz.html'">Қазақша</button>
+            <button onclick="window.location.href='index.html'">Русский</button>
+            <button class="btn-help" onclick="window.location.href='help.html'">Help</button>
+        </div>
     </div>
     <script>
         // Данные для выпадающего списка с баллами
@@ -472,7 +518,10 @@
         document.getElementById("mortalityResult").innerText = `The probability of death: ${(mortalityRate * 100).toFixed(1)}%`;
     }
     
-    
+    function toggleMenu() {
+        const menuContent = document.querySelector('.burger-menu .menu-content');
+        menuContent.classList.toggle('show');
+    }
    
 </script>
 </body>
