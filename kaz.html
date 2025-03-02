@@ -68,7 +68,7 @@
         }
         .language-buttons {
         position: fixed;
-        bottom: 20px;
+        top: 20px;
         right: 20px;
         display: flex;
         justify-content: center;
@@ -76,9 +76,16 @@
     }
     .language-buttons button {
         margin: 0 5px 5px 0;
-        padding: 6px 10px;
-        font-size: 12px;
+        padding: 4px 8px;
+        font-size: 10px;
         border-radius: 4px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .language-buttons button:hover {
+        background-color: #0056b3;
     }
     @media (max-width: 768px) {
         body {
@@ -101,57 +108,15 @@
             font-size: 12px;
         }
         .language-buttons {
-            bottom: 10px;
+            top: 10px;
             right: 10px;
             flex-direction: column;
             align-items: flex-end;
         }
         .language-buttons button {
             margin: 5px 0;
-            font-size: 14px;
-            width: 100px;
-        }
-    }
-    .burger-menu {
-        display: none;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    .burger-menu button {
-        margin: 5px 0;
-        padding: 6px 10px;
-        font-size: 12px;
-        border-radius: 4px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-    .burger-menu button:hover {
-        background-color: #218838;
-    }
-    .burger-menu .menu-content {
-        display: none;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    .burger-menu .menu-content button {
-        margin: 5px 0;
-        font-size: 14px;
-        width: 100px;
-    }
-    .burger-menu .menu-content.show {
-        display: flex;
-    }
-    @media (max-width: 768px) {
-        .language-buttons {
-            display: none;
-        }
-        .burger-menu {
-            display: flex;
+            font-size: 12px;
+            width: 60px;
         }
     }
     </style>
@@ -162,10 +127,10 @@
         <h1 class="title">LOPMODS</h1>
         <p class="subtitle">Lethal Outcome Prediction of MODS</p>
 
-        <h2>Өлім ықтималдығын есептеу</h2>
+        <h2>Көп мүшелі дисфункцияның өлу ықтималдығын есептеңіз</h2>
 
         <div class="input-group">
-            <label for="iFabp">Қан сарысуындағы I-FABP деңгейі</label>
+            <label for="iFabp">Қан сарысуындағы I-FABP деңгейі(Пк/мл)</label>
             <input type="number" id="iFabp">
         </div>
 
@@ -288,17 +253,9 @@
     </div>
 
     <div class="language-buttons">
-        <button class="btn" onclick="window.location.href='index.html'">Русский</button>
-        <button class="btn" onclick="window.location.href='eng.html'">English</button>
-        <button class="btn btn-help" onclick="window.location.href='help.html'">Көмек</button>
-    </div>
-    <div class="burger-menu">
-        <button onclick="toggleMenu()">☰</button>
-        <div class="menu-content">
-            <button onclick="window.location.href='index.html'">Русский</button>
-            <button onclick="window.location.href='eng.html'">English</button>
-            <button class="btn-help" onclick="window.location.href='help.html'">Көмек</button>
-        </div>
+        <button class="btn" onclick="window.location.href='index.html'">RU</button>
+        <button class="btn" onclick="window.location.href='eng.html'">EN</button>
+        <button class="btn btn-help" onclick="window.location.href='help.html'">KZ</button>
     </div>
 
     <script>
