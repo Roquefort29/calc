@@ -27,13 +27,92 @@
             font-size: 14px;
             color: #555;
         }
+        .language-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .language-buttons button {
+            margin: 0 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .language-buttons button:hover {
+            background-color: #0056b3;
+        }
+        .btn-help {
+            background-color: #28a745;
+        }
+        .btn-help:hover {
+            background-color: #218838;
+        }
+        .back-button {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .back-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button button:hover {
+            background-color: #0056b3;
+        }
+         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .card {
+                padding: 15px;
+            }
+            .title {
+                font-size: 24px;
+            }
+            .subtitle {
+                font-size: 12px;
+            }
+            .language-buttons {
+                top: 10px;
+                right: 10px;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .language-buttons button {
+                margin: 5px 0;
+                font-size: 14px;
+                width: 100px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="card">
         <h1 class="title">Помощь</h1>
         <p class="subtitle">Информация о том, как использовать калькулятор</p>
+
+        <div class="language-buttons">
+            <button class="btn" onclick="window.location.href='index.html'">Русский</button>
+            <button class="btn" onclick="window.location.href='eng.html'">English</button>
+            <button class="btn btn-help" onclick="window.location.href='kaz.html'">Қазақша</button>
+        </div>
+
         <!-- Add help content here -->
+
+        <div class="back-button">
+            <button onclick="window.history.back()">Назад</button>
+        </div>
     </div>
 </body>
 </html>
