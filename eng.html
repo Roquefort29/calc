@@ -458,10 +458,15 @@
     function calculateMortality() {
         const iFabp = parseFloat(document.getElementById("iFabp").value) || 0;
         const apacheScore = parseFloat(document.getElementById("apacheScore").value) || 0;
+        
+        if (iFabp === 0 && apacheScore === 0) {
+            document.getElementById("mortalityResult").innerText = "Mortality Rate: 0%";
+            return;
+        }
+
         const z = -3.389 + 0.001 * iFabp + 0.182 * apacheScore;
-        const e = Math.E;
         const mortalityRate = 1 / (1 + Math.exp(-z));
-        document.getElementById("mortalityResult").innerText = "Уровень летальности: " + (mortalityRate * 100).toFixed(2) + "%";
+        document.getElementById("mortalityResult").innerText = `Mortality Rate: ${(mortalityRate * 100).toFixed(1)}% ( ${mortalityRate.toFixed(3)} ≈ ${(mortalityRate * 100).toFixed(1)}%)`;
     }
     
     
