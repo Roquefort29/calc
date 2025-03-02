@@ -81,7 +81,24 @@
         <div class="language-buttons">
             <button class="btn" onclick="window.location.href='index.html'">Русский</button>
             <button class="btn" onclick="window.location.href='eng.html'">English</button>
+            <button class="btn" onclick="window.location.href='help.html'">Көмек</button>
         </div>
+
+        <h2>Өлім ықтималдығын есептеу</h2>
+
+        <div class="input-group">
+            <label for="iFabp">Қан сарысуындағы I-FABP деңгейі</label>
+            <input type="number" id="iFabp">
+        </div>
+
+        <div class="input-group">
+            <label for="apacheScore">APACHE II шкаласы бойынша ұпайлар</label>
+            <input type="number" id="apacheScore">
+        </div>
+
+        <button class="btn" onclick="calculateMortality()">Өлім деңгейін есептеңіз</button>
+
+        <div id="mortalityResult" class="result"></div>
 
         <h2>Калькулятор APACHE II</h2>
 
@@ -89,11 +106,11 @@
             <label for="useApache">APACHE II есептеу керек пе?</label>
             <select id="useApache" onchange="toggleApacheScale()">
                 <option value="yes">Иә</option>
-                <option value="no">Жоқ</option>
+                <option value="no" selected>Жоқ</option>
             </select>
         </div>
 
-        <div id="apacheScale">
+        <div id="apacheScale" style="display: none;">
             <div class="input-group">
                 <label for="age">Жасы (жас)</label>
                 <input type="number" id="age">
@@ -127,7 +144,7 @@
                 <label for="respiratoryRate">Тыныс алу жиілігі (тыныс/мин)</label>
                 <input type="number" id="respiratoryRate">
             </div>
-    
+
 
             <div class="input-group">
                 <label for="gas-analysis">A-a градиенті (мм. сын. бағ.)pao₂ (FiO₂>50%) немесе PaO₂ &lt; (FiO₂ 50%)</label>
@@ -190,25 +207,6 @@
 
             <div id="result" class="result"></div>
         </div>
-
-        <h1 class="title">LOPMODS</h1>
-        <p class="subtitle">Lethal Outcome Prediction of MODS</p>
-
-        <h2>Өлім ықтималдығын есептеу</h2>
-
-        <div class="input-group">
-            <label for="iFabp">Қан сарысуындағы I-FABP деңгейі</label>
-            <input type="number" id="iFabp">
-        </div>
-
-        <div class="input-group">
-            <label for="apacheScore">APACHE II шкаласы бойынша ұпайлар</label>
-            <input type="number" id="apacheScore">
-        </div>
-
-        <button class="btn" onclick="calculateMortality()">Өлім деңгейін есептеңіз</button>
-
-        <div id="mortalityResult" class="result"></div>
     </div>
 
     <script>
