@@ -193,20 +193,20 @@
         return element.value;
     }
 
-    const age = getValue("age");
-    const temperature = getValue("temperature");
-    const meanBP = getValue("meanBP");
-    const heartRate = getValue("heartRate");
-    const respiratoryRate = getValue("respiratoryRate");
-    const ph = getValue("ph");
-    const sodium = getValue("sodium");
-    const potassium = getValue("potassium");
-    const creatinine = getValue("creatinine");
-    const hematocrit = getValue("hematocrit");
-    const wbc = getValue("wbc");
-    const glasgow = getValue("glasgow");
-    const isARF = getValue("arf", "checkbox");  
-    const isImmunodeficiency = getValue("immunodeficiency", "checkbox");
+    const age = getValue("age") || 0;
+    const temperature = getValue("temperature") || 0;
+    const meanBP = getValue("meanBP") || 0;
+    const heartRate = getValue("heartRate") || 0;
+    const respiratoryRate = getValue("respiratoryRate") || 0;
+    const ph = getValue("ph") || 0;
+    const sodium = getValue("sodium") || 0;
+    const potassium = getValue("potassium") || 0;
+    const creatinine = getValue("creatinine") || 0;
+    const hematocrit = getValue("hematocrit") || 0;
+    const wbc = getValue("wbc") || 0;
+    const glasgow = getValue("glasgow") || 0;
+    const isARF = getValue("arf", "checkbox") || 0;  
+    const isImmunodeficiency = getValue("immunodeficiency", "checkbox") || 0;
     const patientType = document.getElementById("patientType").value || 0;
     const gasAnalysis = parseInt(getValue("gas-analysis", "text")) || 0;
                 
