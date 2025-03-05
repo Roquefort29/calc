@@ -301,7 +301,7 @@
 
     function getValue(id, type = 'number') {
         const element = document.getElementById(id);
-        if (!element) return 0;
+        if (!element || element.value === "") return null;
         if (type === 'checkbox') return element.checked ? 1 : 0;
         if (type === 'number') return parseFloat(element.value) || 0;
         if (type === "text") return element.value.trim() || "";
@@ -328,128 +328,140 @@
 
   
     // Возраст
-    if (age >= 75) score += 6;
-    else if (age >= 65) score += 5;
-    else if (age >= 55) score += 3;
-    else if (age >= 45) score += 2;
-    else if (age <= 44) score += 0;
-    else return 0;
+    if (age !== null) {
+        if (age >= 75) score += 6;
+        else if (age >= 65) score += 5;
+        else if (age >= 55) score += 3;
+        else if (age >= 45) score += 2;
+        else if (age <= 44) score += 0;
+    }
 
     // Температура
-    if (temperature > 40.9) score += 4;
-    else if (temperature >= 39) score += 3;
-    else if (temperature >= 38.5) score += 1;
-    else if (temperature >= 36) score += 0;
-    else if (temperature >= 34) score += 1;
-    else if (temperature >= 32) score += 2;
-    else if (temperature >= 30) score += 3;
-    else if (temperature < 30) score += 4;
-    else return 0;
+    if (temperature !== null) {
+        if (temperature > 40.9) score += 4;
+        else if (temperature >= 39) score += 3;
+        else if (temperature >= 38.5) score += 1;
+        else if (temperature >= 36) score += 0;
+        else if (temperature >= 34) score += 1;
+        else if (temperature >= 32) score += 2;
+        else if (temperature >= 30) score += 3;
+        else if (temperature < 30) score += 4;
+    }
 
     // Среднее артериальное давление
-    if (meanBP > 159) score += 4;
-    else if (meanBP >= 130) score += 3;
-    else if (meanBP >= 110) score += 2;
-    else if (meanBP >= 70) score += 0;
-    else if (meanBP >= 50) score += 2;
-    else if (meanBP < 50) score += 4;
-    else return 0;
+    if (meanBP !== null) {
+        if (meanBP > 159) score += 4;
+        else if (meanBP >= 130) score += 3;
+        else if (meanBP >= 110) score += 2;
+        else if (meanBP >= 70) score += 0;
+        else if (meanBP >= 50) score += 2;
+        else if (meanBP < 50) score += 4;
+    }
 
     // Частота сердечных сокращений
-    if (heartRate > 179) score += 4;
-    else if (heartRate >= 140) score += 3;
-    else if (heartRate >= 110) score += 2;
-    else if (heartRate >= 70) score += 0;
-    else if (heartRate >= 55) score += 2;
-    else if (heartRate >= 40) score += 3;
-    else if (heartRate < 40) score += 4;
-    else return 0;
+    if (heartRate !== null) {
+        if (heartRate > 179) score += 4;
+        else if (heartRate >= 140) score += 3;
+        else if (heartRate >= 110) score += 2;
+        else if (heartRate >= 70) score += 0;
+        else if (heartRate >= 55) score += 2;
+        else if (heartRate >= 40) score += 3;
+        else if (heartRate < 40) score += 4;
+    }
 
     // Частота дыхания
-    if (respiratoryRate > 49) score += 4;
-    else if (respiratoryRate >= 35) score += 3;
-    else if (respiratoryRate >= 25) score += 1;
-    else if (respiratoryRate >= 12) score += 0;
-    else if (respiratoryRate >= 10) score += 1;
-    else if (respiratoryRate >= 6) score += 2;
-    else if (respiratoryRate < 6) score += 4;
-    else return 0;
+    if (respiratoryRate !== null) {
+        if (respiratoryRate > 49) score += 4;
+        else if (respiratoryRate >= 35) score += 3;
+        else if (respiratoryRate >= 25) score += 1;
+        else if (respiratoryRate >= 12) score += 0;
+        else if (respiratoryRate >= 10) score += 1;
+        else if (respiratoryRate >= 6) score += 2;
+        else if (respiratoryRate < 6) score += 4;
+    }
 
 
     // pH артериальной крови
-    if (ph > 7.69) score += 4;
-    else if (ph >= 7.60) score += 3;
-    else if (ph >= 7.50) score += 1;
-    else if (ph >= 7.33) score += 0;
-    else if (ph >= 7.25) score += 2;
-    else if (ph >= 7.15) score += 3;
-    else if (ph < 7.15) score += 4;
-    else return 0;
+    if (ph !== null) {
+        if (ph > 7.69) score += 4;
+        else if (ph >= 7.60) score += 3;
+        else if (ph >= 7.50) score += 1;
+        else if (ph >= 7.33) score += 0;
+        else if (ph >= 7.25) score += 2;
+        else if (ph >= 7.15) score += 3;
+        else if (ph < 7.15) score += 4;
+    }
 
 
     // Натрий сыворотки
-    if (sodium > 179) score += 4;
-    else if (sodium >= 160) score += 3;
-    else if (sodium >= 155) score += 2;
-    else if (sodium >= 150) score += 1;
-    else if (sodium >= 130) score += 0;
-    else if (sodium >= 120) score += 2;
-    else if (sodium >= 111) score += 3;
-    else if (sodium < 111) score += 4;
-    else return 0;
+    if (sodium !== null) {
+        if (sodium > 179) score += 4;
+        else if (sodium >= 160) score += 3;
+        else if (sodium >= 155) score += 2;
+        else if (sodium >= 150) score += 1;
+        else if (sodium >= 130) score += 0;
+        else if (sodium >= 120) score += 2;
+        else if (sodium >= 111) score += 3;
+        else if (sodium < 111) score += 4;
+    }
 
     // Калий сыворотки
-    if (potassium > 6.9) score += 4;
-    else if (potassium >= 6) score += 3;
-    else if (potassium >= 5.5) score += 1;
-    else if (potassium >= 3.5) score += 0;
-    else if (potassium >= 3) score += 1;
-    else if (potassium >= 2.5) score += 2;
-    else if (potassium < 2.5) score += 4;
-    else return 0;
+    if (potassium !== null) {
+        if (potassium > 6.9) score += 4;
+        else if (potassium >= 6) score += 3;
+        else if (potassium >= 5.5) score += 1;
+        else if (potassium >= 3.5) score += 0;
+        else if (potassium >= 3) score += 1;
+        else if (potassium >= 2.5) score += 2;
+        else if (potassium < 2.5) score += 4;
+    }
 
     // Креатинин сыворотки
-    if (creatinine > 300.56) score += 4;
-    else if (creatinine >= 176.8) score += 3;
-    else if (creatinine >= 132.6) score += 2;
-    else if (creatinine >= 53.04) score += 0;
-    else if (creatinine < 53.04) score += 2;
-    else return 0;
+    if (creatinine !== null) {
+        if (creatinine > 300.56) score += 4;
+        else if (creatinine >= 176.8) score += 3;
+        else if (creatinine >= 132.6) score += 2;
+        else if (creatinine >= 53.04) score += 0;
+        else if (creatinine < 53.04) score += 2;
+    }
 
 
     // Гематокрит
-    if (hematocrit > 59.9) score += 4;
-    else if (hematocrit >= 50) score += 2;
-    else if (hematocrit >= 46) score += 1;
-    else if (hematocrit >= 30) score += 0;
-    else if (hematocrit >= 20) score += 2;
-    else if (hematocrit < 20) score += 4;
-    else return 0;
+    if (hematocrit !== null) {
+        if (hematocrit > 59.9) score += 4;
+        else if (hematocrit >= 50) score += 2;
+        else if (hematocrit >= 46) score += 1;
+        else if (hematocrit >= 30) score += 0;
+        else if (hematocrit >= 20) score += 2;
+        else if (hematocrit < 20) score += 4;
+    }
 
     // Лейкоциты
-    if (wbc > 39.9) score += 4;
-    else if (wbc >= 20) score += 2;
-    else if (wbc >= 15) score += 1;
-    else if (wbc >= 3) score += 0;
-    else if (wbc >= 1) score += 2;
-    else if (wbc < 1) score += 4;
-    else return 0;
+    if (wbc !== null) {
+        if (wbc > 39.9) score += 4;
+        else if (wbc >= 20) score += 2;
+        else if (wbc >= 15) score += 1;
+        else if (wbc >= 3) score += 0;
+        else if (wbc >= 1) score += 2;
+        else if (wbc < 1) score += 4;
+    }
 
     // Шкала комы Глазго
-    if (glasgow >= 15) score += 0;
-    else if (glasgow === 14) score += 1;
-    else if (glasgow === 13) score += 2;
-    else if (glasgow === 12) score += 3;
-    else if (glasgow === 11) score += 4;
-    else if (glasgow === 10) score += 5;
-    else if (glasgow === 9) score += 6;
-    else if (glasgow === 8) score += 7;
-    else if (glasgow === 7) score += 8;
-    else if (glasgow === 6) score += 9;
-    else if (glasgow === 5) score += 10;
-    else if (glasgow === 4) score += 11;
-    else if (glasgow === 3) score += 12;
-    else return 0;
+    if (glasgow !== null) {
+        if (glasgow >= 15) score += 0;
+        else if (glasgow === 14) score += 1;
+        else if (glasgow === 13) score += 2;
+        else if (glasgow === 12) score += 3;
+        else if (glasgow === 11) score += 4;
+        else if (glasgow === 10) score += 5;
+        else if (glasgow === 9) score += 6;
+        else if (glasgow === 8) score += 7;
+        else if (glasgow === 7) score += 8;
+        else if (glasgow === 6) score += 9;
+        else if (glasgow === 5) score += 10;
+        else if (glasgow === 4) score += 11;
+        else if (glasgow === 3) score += 12;
+    }
 
     // Сопутствующая патология
     if (patientType === "nonOperated" || patientType === "emergencySurgery") {
