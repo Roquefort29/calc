@@ -192,8 +192,13 @@
 
     function getValue(id, type = 'number') {
         const element = document.getElementById(id);
-        if (!element || element.value === "") return null;
-        if (type === 'checkbox') return element.checked ? 1 : 0;
+        if (!element || element.value === "") {
+            element.style.borderColor = "red";
+            hasEmptyFields = true;
+            return null;
+        } else {
+            element.style.borderColor = "";
+        }        if (type === 'checkbox') return element.checked ? 1 : 0;
         if (type === 'number') return parseFloat(element.value) || 0;
         if (type === "text") return element.value.trim() || "";
         return element.value;
@@ -360,7 +365,11 @@
 }
 
     score += gasAnalysis;
-   document.getElementById("result").innerText=" Общий балл " + score;
+    if (hasEmptyFields) {
+        document.getElementById("result").innerText = "Введите значение";
+    } else {
+        document.getElementById("result").innerText = "Жалпы балл " + score;
+    }
 }
     
     function calculateMortality() {
