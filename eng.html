@@ -370,7 +370,7 @@
 
     score += gasAnalysis;
     if (hasEmptyFields) {
-        document.getElementById("result").innerText = "Please enter a value";
+        document.getElementById("result").innerHTML = "<span style='color: red;'>Please enter a value</span>";
     } else {
         document.getElementById("result").innerText = "Total score " + score;
     }
