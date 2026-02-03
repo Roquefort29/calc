@@ -221,7 +221,7 @@ h2 {
 
 @media (max-width: 768px) {
     body {
-        background-position: center bottom; /* На мобильных ДНК лучше внизу */
+        background-position: center bottom; 
         background-size: 50%;
     }
     .card {
@@ -231,5 +231,39 @@ h2 {
         position: static;
         justify-content: flex-end;
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        font-size: 0.85rem; 
+        padding: 12px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+        margin-top: 10px;
+    }
+
+    .input-group label {
+        margin-bottom: 3px;
+    }
+
+    input, select, .btn {
+        padding: 8px 12px; 
+        font-size: 0.9rem;
+    }
+
+    .input-group {
+        margin-bottom: 10px; 
+    }
+
+    .result {
+        padding: 10px;
+        margin-top: 10px;
     }
 }
